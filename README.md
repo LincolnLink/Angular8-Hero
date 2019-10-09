@@ -30,3 +30,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Criando Componente
 
 Run `ng generate component NOME-DO-COMPONENTE` 
+
+
+
+## Criando um servico
+
+Run `ng generate service hero` 
+
+
+
+## Criar mensagem
+
+Run `ng generate component messages` 
