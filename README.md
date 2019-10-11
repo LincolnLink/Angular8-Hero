@@ -39,6 +39,23 @@ Run `ng generate service hero`
 
 
 
-## Criar mensagem
+## Criar componente dedicado a mensagem
 
 Run `ng generate component messages` 
+
+
+## Criar um modulo para a direitva de rotas
+
+Run `ng generate module app-routing --flat --module=app` 
+
+--flatcoloca o arquivo em src/appvez de sua própria pasta.
+--module=appdiz à CLI para registrá-lo na importsmatriz do AppModule.
+
+
+## Usando o ng serve
+
+Run `ng serve` 
+
+
+
+
