@@ -1,5 +1,6 @@
 <h2>My Heroes</h2>
 
+<!--
 <ul class="heroes">
     <li *ngFor="let hero of heroes">
         <a routerLink="/detail/{{hero.id}}">
@@ -7,6 +8,25 @@
         </a>
     </li>
 </ul>
-
+-->
 <!--[class.selected]="hero === selectedHero"
 (click)="onSelect(hero)"-->
+
+<div>
+    <label>Hero name:
+        <input #userName />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(userName.value); userName.value=''">
+        add
+    </button>
+</div>
+
+
+<ul class="heroes">
+    <li *ngFor="let use of ListUser">
+        <a routerLink="/detail/{{use.id}}">
+            <span class="badge">{{use.id}}</span> {{use.name}}
+        </a>
+    </li>
+</ul>

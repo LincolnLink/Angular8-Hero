@@ -24,6 +24,7 @@
   }
   .grid {
     margin: 0;
+    height: 15em;
   }
   .col-1-4 {
     width: 25%;

@@ -3,7 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Hero } from '../hero';
-import { HeroService }  from '../hero.service';
+import { HeroService } from '../hero.service';
+import { UserService } from '../user.service';
+import { User } from '../user';
+import { strictEqual } from 'assert';
+import { Guid } from 'guid-typescript';
 
 @Component({
   selector: 'app-hero-detail',
@@ -13,16 +17,18 @@ import { HeroService }  from '../hero.service';
 export class HeroDetailComponent implements OnInit {
 
   @Input() hero: Hero;
+  @Input() user: User;
 
-  constructor( 
+  constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
-    private location: Location) 
-    {}
+    private location: Location,
+    private userService: UserService) { }
 
   ngOnInit(): void {
 
     this.getHero();
+    this.getUser();
   }
 
   //A route.snapshoté uma imagem estática das informações 
@@ -36,11 +42,25 @@ export class HeroDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
 
     this.heroService.getHero(id)
-    .subscribe(hero => this.hero = hero);
+      .subscribe(hero => this.hero = hero);
+  }
+
+  getUser(): void {
+
+    const id = +this.route.snapshot.paramMap.get('id');
+
+
+    this.userService.getUser(id.toString())
+      .subscribe(i => this.user = i);
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    this.userService.updateUser(this.user)
+      .subscribe(() => this.goBack());
   }
 
 }
