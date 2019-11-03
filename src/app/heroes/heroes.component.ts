@@ -44,4 +44,10 @@ export class HeroesComponent implements OnInit {
       });
   }
 
+  delete(user: User): void {
+    this.ListUser = this.ListUser.filter(h => h !== user);
+    this.userService.deleteUser(user).subscribe();
+  }
+
+
 }
