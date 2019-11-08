@@ -74,8 +74,8 @@ export class UserService {
     //////// Save methods //////////
 
     /** POST: add a new User to the server */
-    addUser(Use: User): Observable<User> {
-        return this.http.post<User>(this.UserUrl, Use, this.httpOptions).pipe(
+    addUser(use: User): Observable<User> {
+        return this.http.post<User>(this.UserUrl, use, this.httpOptions).pipe(
             tap((newUser: User) => this.log(`added User w/ id=${newUser.id}`)),
             catchError(this.handleError<User>('addUser'))
         );
@@ -90,8 +90,19 @@ export class UserService {
     }
 
     /** DELETE: delete the User from the server */
-    deleteUser(user: User | number): Observable<User> {
-        const id = typeof user === 'number' ? user : user.id;
+    deleteUser(user: string): Observable<User> {
+
+        const url = `${this.UserUrl}/${user}`;
+
+        return this.http.delete<User>(url).pipe(
+            tap(_ => this.log(`deleted User`)),
+            catchError(this.handleError<User>('deleteUser'))
+        );
+    }
+
+    /** DELETE: delete the User from the server */
+    deleteUser2(user: User | string): Observable<User> {
+        const id = typeof user === 'string' ? user : user.id;
         const url = `${this.UserUrl}/${id}`;
 
         return this.http.delete<User>(url, this.httpOptions).pipe(

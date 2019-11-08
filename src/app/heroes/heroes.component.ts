@@ -44,9 +44,9 @@ export class HeroesComponent implements OnInit {
       });
   }
 
-  delete(user: User): void {
-    this.ListUser = this.ListUser.filter(h => h !== user);
-    this.userService.deleteUser(user).subscribe();
+  delete(id: string): void {
+    this.ListUser = this.ListUser.filter(h => h.id !== id);
+    this.userService.deleteUser(id).subscribe();
   }
 
 

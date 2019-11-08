@@ -25,9 +25,18 @@
 
 <ul class="heroes">
     <li *ngFor="let use of ListUser">
-        <a routerLink="/detail/{{use.id}}">
-            <span class="badge">{{use.id}}</span> {{use.name}}
-        </a>
-        <button class="delete" title="delete hero" (click)="delete(use)">x</button>
+        <div class="ClassName">
+            <a routerLink="/detail/{{use.id}}">
+                <span class="badge">{{use.name}}</span>
+            </a>
+        </div>
+        <div class="UserDados">
+            {{use.email}}
+        </div>
+        <div class="UserBtList">
+            <button class="delete" title="delete user" (click)="delete(use.id)">x</button>
+        </div>
+
+
     </li>
 </ul>
