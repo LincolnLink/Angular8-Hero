@@ -35,10 +35,17 @@ export class HeroesComponent implements OnInit {
       .subscribe(i => this.ListUser = i)
   }
 
-  add(name: string): void {
+  add(name: string, email: string): void {
+
+
+    let usuario = {}
+
     name = name.trim();
-    if (!name) { return; }
-    this.userService.addUser({ name } as User)
+    email = email.trim();
+
+    if (!name && !email) { return; }
+
+    this.userService.addUser({ name, email } as User)
       .subscribe(user => {
         this.ListUser.push(user);
       });

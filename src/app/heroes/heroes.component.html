@@ -13,11 +13,14 @@
 (click)="onSelect(hero)"-->
 
 <div>
-    <label>Hero name:
+    <label>Usuario name:
         <input #userName />
     </label>
+    <label>Email :
+        <input #userEmail />
+    </label>
     <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(userName.value); userName.value=''">
+    <button (click)="add(userName.value, userEmail.value); userName.value=''; userEmail.value='';">
         add
     </button>
 </div>
