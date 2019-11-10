@@ -34,4 +34,5 @@ export class HeroService {
     this.log("fetched hero id=${id}");
     return of(HEROES.find(hero => hero.id === id));
   }
+
 }

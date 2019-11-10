@@ -21,11 +21,22 @@ export class HeroSearchComponent implements OnInit {
   constructor(private heroService: HeroService,
     private userService: UserService) { }
 
-  // Push a search term into the observable stream.
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
 
+
+  /*
+    Cada operador trabalha da seguinte maneira:
+
+    debounceTime(300)aguarda até o fluxo de novos eventos de sequência pausar por 300
+    milissegundos antes de transmitir a sequência mais recente. Você nunca fará 
+    solicitações com mais frequência que 300 ms.
+
+    distinctUntilChanged() garante que uma solicitação seja 
+    enviada apenas se o texto do filtro for alterado.
+
+    switchMap()chama o serviço de pesquisa para cada termo de pesquisa que 
+    o faz passar por debounce()e distinctUntilChanged(). Cancela e descarta 
+    os observáveis ​​de pesquisa anteriores, retornando apenas o último serviço de pesquisa observável.
+   */
   ngOnInit(): void {
     this.users$ = this.searchTerms.pipe(
       // wait 300ms after each keystroke before considering the term
@@ -39,7 +50,10 @@ export class HeroSearchComponent implements OnInit {
     );
   }
 
-
+  // Push a search term into the observable stream.
+  search(term: string): void {
+    this.searchTerms.next(term);
+  }
 
 
 }

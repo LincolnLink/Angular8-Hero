@@ -59,3 +59,7 @@ Run `ng serve`
 
 
 
+# Visão geral da arquitetura
+https://angular.io/guide/architecture
+
+
