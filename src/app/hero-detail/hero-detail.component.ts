@@ -16,9 +16,11 @@ import { Guid } from 'guid-typescript';
 })
 export class HeroDetailComponent implements OnInit {
 
+  //Propriedades da classe
   @Input() hero: Hero;
   @Input() user: User;
 
+  //Método construtor
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
@@ -27,7 +29,7 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.getHero();
+    //this.getHero();
     this.getUser();
   }
 
@@ -38,13 +40,15 @@ export class HeroDetailComponent implements OnInit {
   //JavaScript (+) converte a sequência em um número, que
   // é o que um herói id deve ser.
 
+  /*
   getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
 
     this.heroService.getHero(id)
       .subscribe(hero => this.hero = hero);
-  }
+  }*/
 
+  //Método que busca o usuario pelo id
   getUser(): void {
 
     const id = this.route.snapshot.paramMap.get('id');
@@ -53,10 +57,12 @@ export class HeroDetailComponent implements OnInit {
       .subscribe(i => this.user = i);
   }
 
+  //Método que volta para a pagina anterior
   goBack(): void {
     this.location.back();
   }
 
+  //Método que Atualiza os dados
   save(): void {
     this.userService.updateUser(this.user)
       .subscribe(() => this.goBack());

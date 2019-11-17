@@ -1,45 +1,56 @@
-<h2>My Heroes</h2>
-
-<!--
-<ul class="heroes">
+<div class="bordaDeIdentificaçãoList">
+    <h2>Adiciona Usuario</h2>
+    <!--<ul class="heroes">
     <li *ngFor="let hero of heroes">
-        <a routerLink="/detail/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span> {{hero.name}}
-        </a>
+    <a routerLink="/detail/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
     </li>
-</ul>
--->
-<!--[class.selected]="hero === selectedHero"
-(click)="onSelect(hero)"-->
+    </ul>
+    -->
+    <!--[class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)"-->
 
-<div>
-    <label>Usuario name:
-        <input #userName />
-    </label>
-    <label>Email :
-        <input #userEmail />
-    </label>
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(userName.value, userEmail.value); userName.value=''; userEmail.value='';">
-        add
-    </button>
+    <div>
+        <label>Usuario name:
+            <input #userName />
+        </label>
+        <br />
+        <br />
+        <label>Email :
+            <input #userEmail />
+        </label>
+        <br />
+        <br />
+        <!-- Botão para adicionar uaurio -->
+        <button (click)="add(userName.value, userEmail.value); userName.value=''; userEmail.value='';">
+            add
+        </button>
+    </div>
+
+    <h2>Lista de Usuarios</h2>
+
+    <ul class="heroes">
+        <!--Repetidor ngFor: gera uma lista de usuarios-->
+        <li *ngFor="let use of ListUser">
+
+            <!--Nome do usuario com link que leva para uma tela com informações dele-->
+            <div class="ClassName">
+                <a routerLink="/detail/{{use.id}}">
+                    <span class="badge">{{use.name}}</span>
+                </a>
+            </div>
+
+            <!--Detalhes do usuario-->
+            <div class="UserDados">
+
+                {{use.email}}
+            </div>
+
+            <!--Botão de deletar-->
+            <div class="UserBtList">
+                <button class="delete" title="delete user" (click)="delete(use.id)">x</button>
+            </div>
+        </li>
+    </ul>
 </div>
-
-
-<ul class="heroes">
-    <li *ngFor="let use of ListUser">
-        <div class="ClassName">
-            <a routerLink="/detail/{{use.id}}">
-                <span class="badge">{{use.name}}</span>
-            </a>
-        </div>
-        <div class="UserDados">
-            {{use.email}}
-        </div>
-        <div class="UserBtList">
-            <button class="delete" title="delete user" (click)="delete(use.id)">x</button>
-        </div>
-
-
-    </li>
-</ul>

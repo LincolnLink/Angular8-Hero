@@ -62,3 +62,11 @@
       min-width: 60px;
     }
   }
+
+  
+  .bordaDeIdentificaçãoDB{
+
+    border: 0.2em solid #268ed8;
+    margin: 1em;
+    padding: 1em;
+  }

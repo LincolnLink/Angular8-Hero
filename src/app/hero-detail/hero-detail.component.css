@@ -29,3 +29,16 @@ label {
     color: #ccc;
     cursor: auto;
   }
+
+  
+  .bordaDeIdentificaçãoDetalhes{
+
+    border: 0.2em solid #eb8f1e;
+    margin: 1em;
+    padding: 1em;
+  }
+
+
+  .btSpace{
+    margin: 1em;
+  }

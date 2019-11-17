@@ -1,17 +1,21 @@
-<div *ngIf="user">
-    <h2>{{user.name | uppercase}} Details</h2>
+<div class="bordaDeIdentificaçãoDetalhes">
+    <!--Repetidor-->
+    <div *ngIf="user">
+        <h2>{{user.name | uppercase}} Details</h2>
 
-    <div><span>Id: </span>{{user.id}}</div>
-    <div>
-        <label>name:
-            <input [(ngModel)]="user.name" placeholder="nome" />
-        </label><br />
-        <label>email:
-            <input [(ngModel)]="user.email" placeholder="email" />
-        </label>
+        <div><span>Id: </span>{{user.id}}</div>
+        <div>
+            <label>name:
+                <input [(ngModel)]="user.name" placeholder="nome" />
+            </label><br />
+            <label>email:
+                <input [(ngModel)]="user.email" placeholder="email" />
+            </label>
+        </div>
     </div>
+
+    <!--Botão que Salva-->
+    <button class="btSpace" (click)="save()">save</button>
+    <!--Botão que volta-->
+    <button class="btSpace" (click)="goBack()">go back</button>
 </div>
-
-<button (click)="save()">save</button>
-
-<button (click)="goBack()">go back</button>

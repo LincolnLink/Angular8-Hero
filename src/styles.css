@@ -23,3 +23,16 @@ h1 {
   * {
     font-family: Arial, Helvetica, sans-serif;
   }
+
+  .bordaDeIdentificação{
+
+    border: 1px solid black;
+  }
+
+
+  .bordaDeIdentificaçãoMenu{
+
+    border: 0.2em solid #3b9452;
+    margin: 1em;
+    padding: 1em;
+  }

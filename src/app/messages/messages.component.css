@@ -34,3 +34,10 @@ h2 {
     color: #333;
     margin-bottom: 12px;
   }
+
+  .bordaDeIdentificação{
+
+    border: 0.2em solid black;
+    margin: 1em;
+    padding: 1em;
+  }

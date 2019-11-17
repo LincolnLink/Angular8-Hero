@@ -13,14 +13,14 @@ import { UserService } from '../user.service';
 })
 export class HeroSearchComponent implements OnInit {
 
+  //Propriedade da classe
   heroes$: Observable<Hero[]>;
   users$: Observable<User[]>;
   private searchTerms = new Subject<string>();
 
-
+  //Método construtor da classe
   constructor(private heroService: HeroService,
     private userService: UserService) { }
-
 
 
   /*
@@ -51,6 +51,7 @@ export class HeroSearchComponent implements OnInit {
   }
 
   // Push a search term into the observable stream.
+  // Busca o usuario baseado no que foi digitado
   search(term: string): void {
     this.searchTerms.next(term);
   }

@@ -75,3 +75,10 @@
     border-top: 1px #405061 solid;
     padding: 2em;
   }
+  
+  .bordaDeIdentificaçãoList{
+
+    border: 0.2em solid #bef3df;
+    margin: 1em;
+    padding: 1em;
+  }
